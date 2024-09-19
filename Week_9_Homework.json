@@ -10,26 +10,24 @@
     },
     "transform": [
       {
-        "lookup": "properties.NAME",
+        "lookup": "properties.STE_NAME21",
         "from": {
           "data": {
             "url": "https://raw.githubusercontent.com/tvog0001/3179_Vis2/blob/main/HighestPopulationHighSchoolByState.csv"
           },
-          "key": "Country",
+          "key": "State",
           "fields": ["Active"]
         }
-      },
-      {"calculate": "datum.Active + 0.1", "as": "Active Cases"}
+      }
     ],
     "mark": {"type": "geoshape"},
     "encoding": {
       "color": {
-        "field": "Active Cases",
-        "type": "quantitative",
-        "scale": {"type": "log"}
+        "field": "Percentage whos highest education is secondary school",
+        "type": "quantitative"
       },
       "tooltip": [
-        {"field": "properties.NAME", "type": "nominal", "title": "Country"},
+        {"field": "properties.STE_NAME21", "type": "nominal", "title": "State"},
         {"field": "Active", "type": "quantitative"}
       ]
     }
