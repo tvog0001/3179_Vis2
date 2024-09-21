@@ -1,34 +1,138 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Percentage of population with Highest education being Year 12",
-    "width": 800,
-    "height": 400,
-    "projection": {"type": "equalEarth"},
-    "data": {
-      "url": "https://raw.githubusercontent.com/tvog0001/3179_Vis2/refs/heads/main/STE_2021_AUST_GDA2020_simplified.topojson",
-      "format": {"type": "topojson", "feature": "STE_2021_AUST_GDA2020"}
-    },
-    "transform": [
-      {
-        "lookup": "properties.STE_NAME21",
-        "from": {
-          "data": {
-            "url": "https://raw.githubusercontent.com/tvog0001/3179_Vis2/refs/heads/main/HighestPopulationHighSchoolByState.csv"
-          },
-          "key": "State",
-          "fields": ["Active"]
-        }
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Percentage of Population Whos Highest Education is Highschool by State in 2021",
+  "width": 800,
+  "height": 400,
+  "projection": {"type": "mercator"},
+  "data": {
+    "url": "https://raw.githubusercontent.com/tvog0001/3179_Vis2/refs/heads/main/STE_2021_AUST_GDA2020_simplified.topojson",
+    "format": {"type": "topojson", "feature": "STE_2021_AUST_GDA2020"}
+  },
+  "transform": [
+    {
+      "lookup": "properties.STE_NAME21",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/tvog0001/3179_Vis2/refs/heads/main/HighestPopulationHighSchoolByState.csv"
+        },
+        "key": "State",
+        "fields": ["Percentage whos highest education is secondary school"]
       }
-    ],
-    "mark": {"type": "geoshape"},
-    "encoding": {
-      "color": {
-        "field": "Percentage whos highest education is secondary school",
-        "type": "quantitative"
-      },
-      "tooltip": [
-        {"field": "properties.STE_NAME21", "type": "nominal", "title": "State"},
-        {"field": "Active", "type": "quantitative"}
-      ]
     }
-  }
+  ],
+  "layer": [{
+  "mark": {"type": "geoshape"},
+  "encoding": {
+    "color": {
+      "field": "Percentage whos highest education is secondary school",
+      "type": "quantitative",
+      "title": "% of population",
+      "scale": {
+        "domain": [0,50],
+        "range": ["lightblue", "blue", "darkred"]
+      }
+    },
+    "tooltip": [
+      {"field": "properties.STE_NAME21", "type": "nominal", "title": "State"},
+      {"field": "Percentage whos highest education is secondary school", "type": "quantitative", "title": "% of Population", "format": ",.1f"}
+    ]}}, {
+    "data": {
+      "values": [
+        {
+          "longitude": 129, 
+          "latitude": -36.4   
+        }
+      ]
+    },
+    "mark": {
+      "type": "rect",
+      "xOffset": -70, 
+      "yOffset": -20, 
+      "width": 200,    
+      "height": 50,    
+      "fill": "#383333",
+      "stroke": "#999",
+      "strokeWidth": 1
+    },
+    "encoding": {
+      "longitude": {"field": "longitude", "type": "quantitative"},
+      "latitude": {"field": "latitude", "type": "quantitative"}
+    }
+  }, 
+  {
+    "data": {
+      "values": [
+        {
+          "label": "South Australia has the highest \n percentage of adults whose highest \n education is high school at 41%",
+          "longitude": 135, 
+          "latitude": -36 
+        }
+      ]
+    },
+    "mark": {
+      "type": "text", 
+      "dy": -10, 
+      "dx": -60, 
+      "fontSize": 12, 
+      "fontStyle": "italic",
+      "color": "white",
+      "lineBreak": "\n"
+    },
+    "encoding": {
+      "longitude": {"field": "longitude", "type": "quantitative"},
+      "latitude": {"field": "latitude", "type": "quantitative"},
+      "text": {"field": "label", "type": "nominal"}
+    }
+  
+  },{
+    "data": {
+      "values": [
+        {
+          "longitude": 161, 
+          "latitude": -35   
+        }
+      ]
+    },
+    "mark": {
+      "type": "rect",
+      "xOffset": -70, 
+      "yOffset": -20, 
+      "width": 200,    
+      "height": 50,    
+      "fill": "#383333",
+      "stroke": "#999",
+      "strokeWidth": 1
+    },
+    "encoding": {
+      "longitude": {"field": "longitude", "type": "quantitative"},
+      "latitude": {"field": "latitude", "type": "quantitative"}
+    }
+  }, 
+  {
+    "data": {
+      "values": [
+        {
+          "label": "While the ACT has the lowest \n percentage of adults whose highest \n education is high school at 29%",
+          "longitude": 166.8, 
+          "latitude": -34.5 
+        }
+      ]
+    },
+    "mark": {
+      "type": "text", 
+      "dy": -10, 
+      "dx": -60, 
+      "fontSize": 12, 
+      "fontStyle": "italic",
+      "color": "white",
+      "lineBreak": "\n"
+    },
+    "encoding": {
+      "longitude": {"field": "longitude", "type": "quantitative"},
+      "latitude": {"field": "latitude", "type": "quantitative"},
+      "text": {"field": "label", "type": "nominal"}
+    }
+  
+  }]
+}
+
