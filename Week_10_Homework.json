@@ -13,10 +13,10 @@
         "lookup": "properties.STE_NAME21",
         "from": {
           "data": {
-            "url": "https://raw.githubusercontent.com/tvog0001/3179_Vis2/refs/heads/main/HighestPopulationHighSchoolByState.csv"
+            "url": "https://raw.githubusercontent.com/tvog0001/3179_Vis2/refs/heads/main/Population_bachelors_ByState.csv"
           },
           "key": "State",
-          "fields": ["Percentage whos highest education is secondary school"]
+          "fields": ["Percentage whos highest education is a bachelors degree"]
         }
       }
     ],
@@ -24,7 +24,7 @@
     "mark": {"type": "geoshape"},
     "encoding": {
       "color": {
-        "field": "Percentage whos highest education is secondary school",
+        "field": "Percentage whos highest education is a bachelors degree",
         "type": "quantitative",
         "title": "% of population",
         "scale": {
@@ -34,7 +34,7 @@
       },
       "tooltip": [
         {"field": "properties.STE_NAME21", "type": "nominal", "title": "State"},
-        {"field": "Percentage whos highest education is secondary school", "type": "quantitative", "title": "% of Population", "format": ",.1f"}
+        {"field": "Percentage whos highest education is a bachelors degree", "type": "quantitative", "title": "% of Population", "format": ",.1f"}
       ]}}, {
       "data": {
         "values": [
