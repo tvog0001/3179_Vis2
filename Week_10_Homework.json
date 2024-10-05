@@ -1,78 +1,150 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Percentage of Population Whose Highest Education is a Bachelor's Degree by State in 2021",
-    "width": 800,
-    "height": 400,
-    "projection": {"type": "mercator"},
-    "data": {
-      "url": "https://raw.githubusercontent.com/tvog0001/3179_Vis2/refs/heads/main/STE_2021_AUST_GDA2020_simplified.topojson",
-      "format": {"type": "topojson", "feature": "STE_2021_AUST_GDA2020"}
-    },
-  
-    "transform": [
-      {
-        "lookup": "properties.STE_NAME21",
-        "from": {
-          "data": {
-            "url": "https://raw.githubusercontent.com/tvog0001/3179_Vis2/refs/heads/main/Population_bachelors_ByState.csv"
-          },
-          "key": "State",
-          "fields": ["Percentage"]
-        }
-      },
-      {
-        "filter": "datum.Percentage >= sliderThreshold"
-      }
-    ],
-    "params": [
-      {
-        "name": "sliderThreshold",
-        "value": 0,
-        "bind": {
-          "input": "range",
-          "min": 0,
-          "max": 20,
-          "step": 0.1,
-          "name": "Minimum Percentage: "
-        }
-      }
-    ],
-    "layer": [
-      {
-        "mark": {"type": "geoshape"},
-        "encoding": {
-          "color": {
-            "field": "Percentage",
-            "type": "quantitative",
-            "title": "% of population",
-            "scale": {
-              "domain": [0, 20],
-              "range": ["lightblue", "blue"]
-            }
-          },
-          "tooltip": [
-            {"field": "properties.STE_NAME21", "type": "nominal", "title": "State"},
-            {"field": "Percentage", "type": "quantitative", "title": "% of Population", "format": ",.1f"}
-          ]
-        }
-      },
-      {
-        "mark": {
-          "type": "text",
-          "align": "center",
-          "baseline": "middle",
-          "fontSize": 11.5,
-          "fontStyle": "italic"
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Percentage of Population Whose Highest Education is a Bachelor's Degree by State in 2021",
+  "width": 800,
+  "height": 400,
+  "projection": {"type": "mercator"},
+  "data": {
+    "url": "https://raw.githubusercontent.com/tvog0001/3179_Vis2/refs/heads/main/STE_2021_AUST_GDA2020_simplified.topojson",
+    "format": {"type": "topojson", "feature": "STE_2021_AUST_GDA2020"}
+  },
+
+  "transform": [
+    {
+      "lookup": "properties.STE_NAME21",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/tvog0001/3179_Vis2/refs/heads/main/Population_bachelors_ByState.csv"
         },
-        "encoding": {
-          "text": {
-            "field": "properties.STE_NAME21",
-            "type": "nominal"
-          },
-          "color": {"value": "black"},
-          "longitude": {"field": "properties.longitude", "type": "quantitative"},
-          "latitude": {"field": "properties.latitude", "type": "quantitative"}
-        }
+        "key": "State",
+        "fields": ["Percentage"]
       }
-    ]
-  }
+    },
+    {
+      "filter": "datum.Percentage >= sliderThreshold"
+    }
+  ],
+  "params": [
+    {
+      "name": "sliderThreshold",
+      "value": 0,
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 20,
+        "step": 0.1,
+        "name": "Minimum Percentage: "
+      }
+    }
+  ],
+  "layer": [
+    {
+      "mark": {"type": "geoshape"},
+      "encoding": {
+        "color": {
+          "field": "Percentage",
+          "type": "quantitative",
+          "title": "% of population",
+          "scale": {
+            "domain": [0, 20],
+            "range": ["lightblue", "blue"]
+          }
+        },
+        "tooltip": [
+          {"field": "properties.STE_NAME21", "type": "nominal", "title": "State"},
+          {"field": "Percentage", "type": "quantitative", "title": "% of Population", "format": ",.1f"}
+        ]
+      }
+    },
+    {
+    "data": {
+      "values": [
+        {
+          "longitude": 120, 
+          "latitude": -15.5   
+        }
+      ]
+    },
+    "mark": {
+      "type": "rect", 
+      "width": 200,    
+      "height": 50,    
+      "fill": "#383333",
+      "stroke": "#999",
+      "strokeWidth": 1
+    },
+    "encoding": {
+      "longitude": {"field": "longitude", "type": "quantitative"},
+      "latitude": {"field": "latitude", "type": "quantitative"}
+    }
+  }, 
+  {
+    "data": {
+      "values": [
+        {
+          "label": "South Australia has the lowest \n percentage of adults whose highest \n education is a Bachelor's at 11%",
+          "longitude": 120, 
+          "latitude": -14 
+        }
+      ]
+    },
+    "mark": {
+      "type": "text", 
+      "fontSize": 12, 
+      "fontStyle": "italic",
+      "color": "white",
+      "lineBreak": "\n"
+    },
+    "encoding": {
+      "longitude": {"field": "longitude", "type": "quantitative"},
+      "latitude": {"field": "latitude", "type": "quantitative"},
+      "text": {"field": "label", "type": "nominal"}
+    }
+  
+  },{
+    "data": {
+      "values": [
+        {
+          "longitude": 161, 
+          "latitude": -35   
+        }
+      ]
+    },
+    "mark": {
+      "type": "rect",
+      "width": 200,    
+      "height": 50,    
+      "fill": "#383333",
+      "stroke": "#999",
+      "strokeWidth": 1
+    },
+    "encoding": {
+      "longitude": {"field": "longitude", "type": "quantitative"},
+      "latitude": {"field": "latitude", "type": "quantitative"}
+    }
+  }, 
+  {
+    "data": {
+      "values": [
+        {
+          "label": "While the ACT has the Highest \n percentage of adults whose highest \n education is high school at 20%",
+          "longitude": 161, 
+          "latitude": -34 
+        }
+      ]
+    },
+    "mark": {
+      "type": "text",  
+      "fontSize": 12, 
+      "fontStyle": "italic",
+      "color": "white",
+      "lineBreak": "\n"
+    },
+    "encoding": {
+      "longitude": {"field": "longitude", "type": "quantitative"},
+      "latitude": {"field": "latitude", "type": "quantitative"},
+      "text": {"field": "label", "type": "nominal"}
+    }
+    }
+  ]
+}
