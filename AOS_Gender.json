@@ -1,0 +1,44 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Area of Study by Gender",
+    "description": "Funnel type bar graph for percentages of men and women by area of study",
+    "data": {
+      "url": "https://raw.githubusercontent.com/tvog0001/3179_Vis2/refs/heads/main/cleaned_data/AOS_ByGender.csv"
+    },
+    "transform": [
+      {"fold": ["Males", "Females"], "as": ["Gender", "Percentage"]},
+      {"calculate": "abs(datum.Percentage)", "as": "Absolute Percentage"}
+    ],
+    "mark": {
+      "type": "bar",
+      "tooltip": true
+    },
+    "encoding": {
+      "y": {"field": "Area Of Study", "type": "nominal", "title": "Area of Study"},
+      "x": {
+        "field": "Percentage",
+        "type": "quantitative",
+        "title": "Percentage",
+        "scale": {
+          "domain": [-100, 100]
+        },
+        "axis": {
+          "labelExpr": "abs(datum.value) + '%'",
+          "title": "Percentage"
+        }
+      },
+      "color": {
+        "field": "Gender",
+        "type": "nominal",
+        "scale": {
+          "domain": ["Males", "Females"],
+          "range": ["#244df7", "#ff28c8"]
+        }
+      },
+      "tooltip": [
+        {"field": "Gender", "type": "nominal", "title": "Gender"},
+        {"field": "Absolute Percentage", "type": "quantitative", 
+        "title": "Percentage", "format": ".2f"}
+      ]
+    }
+  }

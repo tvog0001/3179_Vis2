@@ -1,18 +1,40 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Percetage Area of Study by Age",
+    "title": "Percentage Area of Study by Age",
     "description": "Line graph for percentages by area of study and age group",
     "data": {
       "url": "https://raw.githubusercontent.com/tvog0001/3179_Vis2/refs/heads/main/cleaned_data/Percentage_AOS_ByAge.csv"
     },
     "transform": [
-      {"fold": ["15-19", "20-24", "25-29", "30-34", "35-39", "40-44", "45-49", "50-54", "55-59", "60-64", "65-69", "70-74", "75+"], 
-       "as": ["AgeGroup", "Percentage"]}
+      {
+        "fold": [
+          "15-19", "20-24", "25-29", "30-34", "35-39", 
+          "40-44", "45-49", "50-54", "55-59", "60-64", 
+          "65-69", "70-74", "75+"
+        ],
+        "as": ["AgeGroup", "Percentage"]
+      }
     ],
-    "mark": "line",
-    "encoding": {
-      "x": {"field": "AgeGroup", "type": "nominal", "title": "Age Group"},
-      "y": {"field": "Percentage", "type": "quantitative", "title": "Percentage of Population"},
-      "color": {"field": "Area of Study", "type": "nominal", "title": "Area of Study"}
-    }
+    "layer": [
+      {
+        "mark": "line",
+        "encoding": {
+          "x": {"field": "AgeGroup", "type": "nominal", "title": "Age Group"},
+          "y": {"field": "Percentage", "type": "quantitative", "title": "Percentage of Population"},
+          "color": {"field": "Area of Study", "type": "nominal", "title": "Area of Study"}
+        }
+      },
+      {
+        "mark": {"type": "point", "size": 5},
+        "encoding": {
+          "x": {"field": "AgeGroup", "type": "nominal", "title": "Age Group"},
+          "y": {"field": "Percentage", "type": "quantitative", "title": "Percentage of Population"},
+          "color": {"field": "Area of Study"},
+          "tooltip": [
+            {"field": "Area of Study", "type": "nominal", "title": "Area of Study"},
+            {"field": "Percentage", "type": "quantitative", "title": "Percentage", "format": ".2f"}
+          ]
+        }
+      }
+    ]
   }
