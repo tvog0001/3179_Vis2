@@ -1,0 +1,38 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Percentage of Area of Study by State",
+    "data": {
+      "url": "https://raw.githubusercontent.com/tvog0001/3179_Vis2/refs/heads/main/cleaned_data/Percentage_AOS_ByState.csv"
+    },
+    "transform": [
+      {
+        "fold": [
+          "Natural and Physical Sciences", "Information Technology", "Engineering and Related Technologies", "Architecture and Building", "Health", "Education", "Management and Commerce", "Society and Culture", "Creative Arts", "Hospitality"
+        ],
+        "as": ["Area of Study", "Percentage"]
+      }
+    ],
+    "mark": "bar",
+    "encoding": {
+      "x": {
+        "field": "State",
+        "type": "nominal",
+        "title": "State"
+      },
+      "y": {
+        "field": "Percentage",
+        "type": "quantitative",
+        "title": "Percentage"
+      },
+      "color": {
+        "field": "Area of Study",
+        "type": "nominal",
+        "title": "Area of Study"
+      },
+      "tooltip": [
+              {"field": "State", "type": "nominal", "title": "State"},
+              {"field": "Area of Study", "type": "nominal", "title": "Year"},
+              {"field": "Percentage", "type": "quantitative", "title": "Percentage", "format": ".2f"}
+            ]
+    }
+  }
