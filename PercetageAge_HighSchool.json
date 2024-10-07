@@ -1,0 +1,38 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Percentage of Age group With Highschool education",
+    "description": "Line graph for percentages by area of study and age group",
+    "data": {
+      "url": "https://raw.githubusercontent.com/tvog0001/3179_Vis2/refs/heads/main/cleaned_data/HighestCompletedYear_ByAge.csv"
+    },
+    "transform": [
+      {
+        "fold": [
+          "15-19", "20-24", "25-34", "35-44", "45-54", "55-64", "65-74", "75-84", "85+"],
+        "as": ["AgeGroup", "Population"]
+      }
+    ],
+    "layer": [
+      {
+        "mark": "line",
+        "encoding": {
+          "x": {"field": "AgeGroup", "type": "nominal", "title": "Age Group"},
+          "y": {"field": "Population", "type": "quantitative", "title": "Percentage of Population"},
+          "color": {"field": "Year", "type": "nominal", "title": "Highest Education"}
+        }
+      },
+      {
+        "mark": {"type": "point", "size": 5},
+        "encoding": {
+          "x": {"field": "AgeGroup", "type": "nominal", "title": "Age Group"},
+          "y": {"field": "Population", "type": "quantitative", "title": "Percentage of Population"},
+          "color": {"field": "Year"},
+          "tooltip": [
+            {"field": "AgeGroup", "type": "nominal", "title": "Age Group"},
+            {"field": "Year", "type": "nominal", "title": "Year"},
+            {"field": "Population", "type": "quantitative", "title": "population", "format": ".2f"}
+          ]
+        }
+      }
+    ]
+  }
