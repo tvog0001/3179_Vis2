@@ -17,7 +17,10 @@
       "x": {
         "field": "State",
         "type": "nominal",
-        "title": "State"
+        "title": "State",
+        "axis": {
+          "labelAngle": -45
+        }
       },
       "y": {
         "field": "Percentage",

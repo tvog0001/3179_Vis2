@@ -1,25 +1,59 @@
 h1 {
     font-family: 'Oswald';
+    text-align: center;
+    font-weight: 900;
     margin-left: 10px;
+    background-color: rgb(255, 127, 22);
+    margin: auto;
+    line-height: 1.5em;
+    padding: 10px;
+    box-shadow: 10px 10px;
+}
+
+h2 {
+    font-family: 'Oswald';
+    font-weight: 500;
+    margin-left: 10px;
+    padding: 10px;
+    margin: auto;
 }
 
 p {
     font-family: 'Lato';
     margin-left: 10px;
+    padding: 5px;
+}
+
+.vis_container {
+    width: 100%;
 }
 html, body {
     background-color: white;
+}   
+
+.page {
+    width: 900px;
+    background-color: rgb(212, 196, 174);
+    margin: auto;
+    padding: 50px;
+    padding-top: 35px;
 }
-#Aus_map2 {
-    margin-left: 10px;
-    margin-right: 10px;
+
+.pure-g {
+    width: 880px;
+    margin: auto;
+    padding: 10px;
 }
-.pure-u-1-2 {
-    width: 45vw;
+
+#Orange_box {
+    background-color: rgb(255, 127, 22);
+    box-shadow: 10px 10px;
 }
-.pure-u-1-3 img {
-    width: 30vw;
+#Green_box {
+    background-color: rgb(22, 255, 30);
+    box-shadow: 10px 10px;
 }
-.pure-u-1-3 {
-    margin-top: 30vw;
+#Grey_box {
+    background-color: rgb(123, 123, 123);
+    box-shadow: 10px 10px;
 }

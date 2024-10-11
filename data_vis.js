@@ -18,7 +18,7 @@ vegaEmbed("#PAGE_HS", vg_6).then(function(result) {
     // Access the Vega view instance 
     // (https://vega.github.io/vega/docs/api/view/) as result.view 
 }).catch(console.error);
-var vg_7 = "Week_10_Homework.json"; 
+var vg_7 = "Visualisations/Bachelors_State.json"; 
 vegaEmbed("#Aus_map2", vg_7).then(function(result) { 
     // Access the Vega view instance 
     // (https://vega.github.io/vega/docs/api/view/) as result.view 
