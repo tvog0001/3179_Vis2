@@ -1,7 +1,12 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Percentage Area of Study by Age",
-    "width": 300,
+    "width": 330,
+    "height": 380,
+    "background": "rgb(255, 246, 233)",
+    "view": {
+        "stroke": "rgb(255, 246, 233)" 
+    },
     "description": "Line graph for percentages by area of study and age group",
     "data": {
       "url": "https://raw.githubusercontent.com/tvog0001/3179_Vis2/refs/heads/main/cleaned_data/Percentage_AOS_ByAge.csv"

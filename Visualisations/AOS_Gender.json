@@ -1,6 +1,11 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Area of Study by Gender",
+    "background": "rgb(255, 246, 233)",
+    "width": 280,
+    "view": {
+        "stroke": "rgb(255, 246, 233)" 
+    },
     "description": "Funnel type bar graph for percentages of men and women by area of study",
     "data": {
       "url": "https://raw.githubusercontent.com/tvog0001/3179_Vis2/refs/heads/main/cleaned_data/AOS_ByGender.csv"

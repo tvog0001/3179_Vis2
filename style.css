@@ -3,7 +3,7 @@ h1 {
     text-align: center;
     font-weight: 900;
     margin-left: 10px;
-    background-color: rgb(255, 127, 22);
+    background-color: #26A96C;
     margin: auto;
     line-height: 1.5em;
     padding: 10px;
@@ -12,28 +12,41 @@ h1 {
 
 h2 {
     font-family: 'Oswald';
+    text-align: center;
+    background-color: #2BC016;
     font-weight: 500;
     margin-left: 10px;
     padding: 10px;
     margin: auto;
+    box-shadow: 5px 5px;
 }
 
 p {
     font-family: 'Lato';
+    text-align: center;
     margin-left: 10px;
-    padding: 5px;
+    padding: 15px;
 }
 
 .vis_container {
     width: 100%;
 }
-html, body {
+
+html{
     background-color: white;
 }   
 
+#text_box {
+    border: 3px dashed #32936F;
+}
+
+#l_padding {
+    padding-left: 20px;
+}
+
 .page {
     width: 900px;
-    background-color: rgb(212, 196, 174);
+    background-color: rgb(255, 246, 233);
     margin: auto;
     padding: 50px;
     padding-top: 35px;
@@ -45,15 +58,23 @@ html, body {
     padding: 10px;
 }
 
-#Orange_box {
-    background-color: rgb(255, 127, 22);
-    box-shadow: 10px 10px;
+.highlight-engineering {
+    color: #72b7b2; /* Example: a bright orange color */
 }
-#Green_box {
-    background-color: rgb(22, 255, 30);
-    box-shadow: 10px 10px;
+
+.highlight-commerce {
+    color: #ff9da6; /* Example: a blue color */
 }
-#Grey_box {
-    background-color: rgb(123, 123, 123);
-    box-shadow: 10px 10px;
+
+.highlight-Architecture {
+    color: #4c78a8; /* Example: a bright orange color */
 }
+
+.highlight-Science {
+    color: #9d755d; /* Example: a blue color */
+}
+
+.highlight-Education {
+    color: #e45756; /* Example: a blue color */
+}
+

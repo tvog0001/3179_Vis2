@@ -1,6 +1,10 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Percentage of Area of Study by State",
+    "background": "rgb(255, 246, 233)",
+    "view": {
+        "stroke": "rgb(255, 246, 233)" 
+    },
     "data": {
       "url": "https://raw.githubusercontent.com/tvog0001/3179_Vis2/refs/heads/main/cleaned_data/Percentage_AOS_ByState.csv"
     },

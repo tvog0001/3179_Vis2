@@ -1,11 +1,11 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "percentage of Population with Bachelors 2021",
+    "title": "percentage of Population with Bachelors Degrees 2021",
     "width": 420,
     "height": 400,
-    "background": "rgb(123, 123, 123)",
+    "background": "rgb(255, 246, 233)",
     "view": {
-        "stroke": "rgb(123, 123, 123)" 
+        "stroke": "rgb(255, 246, 233)" 
     },
     "projection": {"type": "mercator"},
     "data": {
@@ -36,7 +36,7 @@
             "scale": {
               "type": "threshold",
               "domain": [12, 14, 16, 18],
-              "range": ["#8B98EB", "#4662CB", "#02319E", "#001A7B", "#000A47"]
+              "range": ["#1bbc9b", "#218f76", "#206454", "#1a3d33", "#000000"]
             }
           },
           "tooltip": [
