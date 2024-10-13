@@ -53,6 +53,7 @@
         },
         "tooltip": [
           {"field": "Area of Study", "type": "nominal", "title": "Area of Study"},
+          {"field": "AgeGroup", "type": "nominal", "title": "Age Group"},
           {"field": "Percentage", "type": "quantitative", "title": "Percentage", "format": ".2f"}
         ]
       }
