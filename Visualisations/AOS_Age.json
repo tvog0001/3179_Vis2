@@ -1,46 +1,61 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Percentage Area of Study by Age",
-    "width": 330,
-    "height": 380,
-    "background": "rgb(255, 246, 233)",
-    "view": {
-        "stroke": "rgb(255, 246, 233)" 
-    },
-    "description": "Line graph for percentages by area of study and age group",
-    "data": {
-      "url": "https://raw.githubusercontent.com/tvog0001/3179_Vis2/refs/heads/main/cleaned_data/Percentage_AOS_ByAge.csv"
-    },
-    "transform": [
-      {
-        "fold": [
-          "15-19", "20-24", "25-29", "30-34", "35-39", 
-          "40-44", "45-49", "50-54", "55-59", "60-64", 
-          "65-69", "70-74", "75+"
-        ],
-        "as": ["AgeGroup", "Percentage"]
-      }
-    ],
-    "layer": [
-      {
-        "mark": "line",
-        "encoding": {
-          "x": {"field": "AgeGroup", "type": "nominal", "title": "Age Group", "axis": {"labelAngle": -45}},
-          "y": {"field": "Percentage", "type": "quantitative", "title": "Percentage of Population"},
-          "color": {"field": "Area of Study", "type": "nominal", "title": "Area of Study"}
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Percentage Area of Study by Age",
+  "width": 330,
+  "height": 430,
+  "background": "rgb(255, 246, 233)",
+  "view": {
+    "stroke": "rgb(255, 246, 233)"
+  },
+  "description": "Line graph for percentages by area of study and age group",
+  "data": {
+    "url": "https://raw.githubusercontent.com/tvog0001/3179_Vis2/refs/heads/main/cleaned_data/Percentage_AOS_ByAge.csv"
+  },
+  "transform": [
+    {
+      "fold": [
+        "15-19", "20-24", "25-29", "30-34", "35-39", 
+        "40-44", "45-49", "50-54", "55-59", "60-64", 
+        "65-69", "70-74", "75+"
+      ],
+      "as": ["AgeGroup", "Percentage"]
+    }
+  ],
+  "layer": [
+    {
+      "selection": {
+        "studySelect": {
+          "type": "multi",
+          "fields": ["Area of Study"],
+          "bind": "legend"
         }
       },
-      {
-        "mark": {"type": "point", "size": 5},
-        "encoding": {
-          "x": {"field": "AgeGroup", "type": "nominal", "title": "Age Group", "axis": {"labelAngle": -45}},
-          "y": {"field": "Percentage", "type": "quantitative", "title": "Percentage of Population"},
-          "color": {"field": "Area of Study"},
-          "tooltip": [
-            {"field": "Area of Study", "type": "nominal", "title": "Area of Study"},
-            {"field": "Percentage", "type": "quantitative", "title": "Percentage", "format": ".2f"}
-          ]
+      "mark": "line",
+      "encoding": {
+        "x": {"field": "AgeGroup", "type": "nominal", "title": "Age Group", "axis": {"labelAngle": -45}},
+        "y": {"field": "Percentage", "type": "quantitative", "title": "Percentage of Qualified Population"},
+        "color": {"field": "Area of Study", "type": "nominal", "title": "Area of Study"},
+        "opacity": {
+          "condition": {"selection": "studySelect", "value": 1},
+          "value": 0.2
         }
       }
-    ]
-  }
+    },
+    {
+      "mark": {"type": "point", "size": 5},
+      "encoding": {
+        "x": {"field": "AgeGroup", "type": "nominal", "title": "Age Group", "axis": {"labelAngle": -45}},
+        "y": {"field": "Percentage", "type": "quantitative", "title": "Percentage of Qualified Population"},
+        "color": {"field": "Area of Study"},
+        "opacity": {
+          "condition": {"selection": "studySelect", "value": 1},
+          "value": 0.2
+        },
+        "tooltip": [
+          {"field": "Area of Study", "type": "nominal", "title": "Area of Study"},
+          {"field": "Percentage", "type": "quantitative", "title": "Percentage", "format": ".2f"}
+        ]
+      }
+    }
+  ]
+}

@@ -1,45 +1,82 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Percentage of Area of Study by State",
-    "background": "rgb(255, 246, 233)",
-    "view": {
-        "stroke": "rgb(255, 246, 233)" 
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Percentage of AOS by State",
+  "width": 280,
+  "height": 280,
+  "background": "rgb(255, 246, 233)",
+  "view": {
+    "stroke": "rgb(255, 246, 233)"
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/tvog0001/3179_Vis2/refs/heads/main/cleaned_data/Percentage_AOS_ByState.csv"
+  },
+  "transform": [
+    {
+      "fold": [
+        "Natural and Physical Sciences",
+        "Information Technology",
+        "Engineering and Related Technologies",
+        "Architecture and Building",
+        "Health",
+        "Education",
+        "Management and Commerce",
+        "Society and Culture",
+        "Creative Arts",
+        "Hospitality"
+      ],
+      "as": ["Area of Study", "Percentage"]
     },
-    "data": {
-      "url": "https://raw.githubusercontent.com/tvog0001/3179_Vis2/refs/heads/main/cleaned_data/Percentage_AOS_ByState.csv"
-    },
-    "transform": [
-      {
-        "fold": [
-          "Natural and Physical Sciences", "Information Technology", "Engineering and Related Technologies", "Architecture and Building", "Health", "Education", "Management and Commerce", "Society and Culture", "Creative Arts", "Hospitality"
-        ],
-        "as": ["Area of Study", "Percentage"]
+    {
+      "filter": {
+        "selection": "selectAOS"
       }
-    ],
-    "mark": "bar",
-    "encoding": {
-      "x": {
-        "field": "State",
-        "type": "nominal",
-        "title": "State",
-        "axis": {
-          "labelAngle": -45
-        }
-      },
-      "y": {
-        "field": "Percentage",
-        "type": "quantitative",
-        "title": "Percentage"
-      },
-      "color": {
-        "field": "Area of Study",
-        "type": "nominal",
-        "title": "Area of Study"
-      },
-      "tooltip": [
-              {"field": "State", "type": "nominal", "title": "State"},
-              {"field": "Area of Study", "type": "nominal", "title": "Year"},
-              {"field": "Percentage", "type": "quantitative", "title": "Percentage", "format": ".2f"}
-            ]
+    }
+  ],
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "field": "State",
+      "type": "nominal",
+      "title": "State",
+      "axis": {
+        "labelAngle": -45
+      }
+    },
+    "y": {
+      "field": "Percentage",
+      "type": "quantitative",
+      "title": "Percentage of Qualified Population"
+    },
+    "color": {
+      "field": "Area of Study",
+      "type": "nominal",
+      "title": "Area of Study",
+      "scale": {
+        "domain": [
+          "Architecture and Building",
+          "Creative Arts",
+          "Education",
+          "Engineering and Related Technologies",
+          "Health",
+          "Hospitality",
+          "Information Technology",
+          "Management and Commerce",
+          "Natural and Physical Sciences",
+          "Society and Culture"
+        ]
+      }
+    },
+    "tooltip": [
+      {"field": "State", "type": "nominal", "title": "State"},
+      {"field": "Area of Study", "type": "nominal", "title": "Area of Study"},
+      {"field": "Percentage", "type": "quantitative", "title": "Percentage", "format": ".2f"}
+    ]
+  },
+  "selection": {
+    "selectAOS": {
+      "type": "multi",
+      "fields": ["Area of Study"],
+      "bind": "legend" 
     }
   }
+}

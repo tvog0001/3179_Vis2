@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "percentage of Population with Bachelors Degrees 2021",
+    "title": "Percentage of Population with Bachelors Degrees 2021",
     "width": 420,
     "height": 400,
     "background": "rgb(255, 246, 233)",
@@ -50,7 +50,7 @@
         "values": [
           {
             "longitude": 120, 
-            "latitude": -15.5   
+            "latitude": -11.5   
           }
         ]
       },
@@ -71,9 +71,9 @@
       "data": {
         "values": [
           {
-            "label": "South Australia has the lowest \n percentage of adults whose highest \n education is a Bachelor's at 11%",
+            "label": "Northern Territory has the lowest \n percentage of adults whose highest \n education is a Bachelor's at 11%",
             "longitude": 120, 
-            "latitude": -14 
+            "latitude": -10 
           }
         ]
       },
@@ -94,14 +94,14 @@
       "data": {
         "values": [
           {
-            "longitude": 161, 
+            "longitude": 164, 
             "latitude": -35   
           }
         ]
       },
       "mark": {
         "type": "rect",
-        "width": 200,    
+        "width": 220,    
         "height": 50,    
         "fill": "#383333",
         "stroke": "#999",
@@ -116,9 +116,9 @@
       "data": {
         "values": [
           {
-            "label": "While the ACT has the Highest \n percentage of adults whose highest \n education is high school at 20%",
-            "longitude": 161, 
-            "latitude": -34 
+            "label": "While the ACT has the Highest \n percentage of adults whose highest \n education is a bachelors degree at 20%",
+            "longitude": 164, 
+            "latitude": -33.5 
           }
         ]
       },

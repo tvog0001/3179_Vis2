@@ -59,22 +59,38 @@ html{
 }
 
 .highlight-engineering {
-    color: #72b7b2; /* Example: a bright orange color */
+    color: #72b7b2; 
 }
 
 .highlight-commerce {
-    color: #ff9da6; /* Example: a blue color */
+    color: #ff9da6; 
 }
 
 .highlight-Architecture {
-    color: #4c78a8; /* Example: a bright orange color */
+    color: #4c78a8; 
 }
 
 .highlight-Science {
-    color: #9d755d; /* Example: a blue color */
+    color: #9d755d; 
 }
 
 .highlight-Education {
-    color: #e45756; /* Example: a blue color */
+    color: #e45756;
+}
+
+#Eng_Gender {
+    padding-left: 151px;
+}
+
+#PAOS_State {
+    padding-left: 50px;
+}
+
+#name_drop{
+    font-family: 'Lato';
+    text-align: left;
+    margin-left: 10px;
+    color: #353535;
+    font-size: small;
 }
 

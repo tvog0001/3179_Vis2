@@ -1,0 +1,49 @@
+
+{ 
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Percentage of Women in Engineering",
+    "width": 280,
+    "background": "rgb(255, 246, 233)",
+    "view": {
+        "stroke": "rgb(255, 246, 233)" 
+    },
+    "description": "Line graph of percentage of male and female engineers across age groups.",
+    "data": {
+      "url": "https://raw.githubusercontent.com/tvog0001/3179_Vis2/refs/heads/main/cleaned_data/Engineering_Gender.csv",
+      "format": {"type": "csv"}
+    },
+    "transform": [
+      {
+        "fold": ["Women"],
+        "as": ["Women", "Percentage"]
+      },
+      {
+        "calculate": "datum.Percentage / 100", 
+        "as": "Percentage"
+      }
+    ],
+    "mark": {
+      "type": "area",
+      "color": "#ff28c8"
+    },
+    "encoding": {
+      "x": {
+        "field": "Age",
+        "type": "ordinal",
+        "axis": {"title": "Age Group"}
+      },
+      "y": {
+        "field": "Percentage",
+        "type": "quantitative",
+        "axis": {
+          "title": "Percentage of Engineers",
+          "format": "%"
+        },
+        "scale": {"domain": [0, 0.5]}
+      },
+      "tooltip": [
+        {"field": "Age", "type": "ordinal", "title": "Age Group"},
+        {"field": "Percentage", "type": "quantitative", "format": ".2%"}
+      ]
+    }
+  }

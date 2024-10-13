@@ -29,7 +29,7 @@
         },
         "axis": {
           "labelExpr": "abs(datum.value) + '%'",
-          "title": "Percentage"
+          "title": "Percentage of Qualified Population"
         }
       },
       "color": {
